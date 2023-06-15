@@ -1,0 +1,12 @@
+<h1> {{name}}!</h1>
+
+Items selected : {{quantity()}} &nbsp;
+<select
+[ngModel]="quantity()"
+(change)="onQuantitySelected($any($event.target).value)">
+<option disabled value="">--Select a quantity--</option>
+<option *ngFor="let q of qtyAvailable()">{{ q }}</option>
+</select>
+<div>Product Name : {{ Electronics().name}}</div>
+<div>Price: {{ Electronics().price | number: '1.2-2'}}</div>
+<div [style.color]="color()">Total Price to Pay : {{price()}}</div>
